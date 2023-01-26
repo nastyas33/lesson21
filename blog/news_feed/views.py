@@ -68,3 +68,5 @@ class PageDeleteView(DeleteView):
     model = Page
     template_name = "page_delete.html"
     success_url = "/"
+
+
