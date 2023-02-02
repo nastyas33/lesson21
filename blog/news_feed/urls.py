@@ -1,20 +1,15 @@
-from django.contrib import admin
 from django.urls import path
-from news_feed.views import \
-    say_hello, get_pages_list, PostListView, PostCreateView, \
-    PostDetailView, PostUpdateView, PostDeleteView, PageCreateView,\
-    PageDetailView, PageUpdateView, PageDeleteView
+from .endpoints import PageListAPIView, PageCreateAPIView, PageListCreateAPIView, \
+    PageUpdateAPIView, PageRetrieveUpdateAPIView, PageRetrieveDestroyAPIView, \
+    PageRetrieveUpdateDestroyAPIView
 
 urlpatterns = [
-    path('index/', say_hello),
-    path('pages/', get_pages_list),
-    path('posts/', PostListView.as_view()),
-    path('post_create/', PostCreateView.as_view()),
-    path('post/<int:pk>', PostDetailView.as_view()),
-    path('post_update/<int:pk>', PostUpdateView.as_view()),
-    path('post_delete/<int:pk>', PostDeleteView.as_view()),
-    path('page_create/', PageCreateView.as_view()),
-    path('page/<int:pk>', PageDetailView.as_view()),
-    path('page_update/<int:pk>', PageUpdateView.as_view()),
-    path('page_delete/<int:pk>', PageDeleteView.as_view())
+    path('page-list/', PageListAPIView.as_view(), name="page_list"),
+    path('page-create/', PageCreateAPIView.as_view(), name="page_create"),
+    path('page-list-create/', PageListCreateAPIView.as_view(), name="page_list_create"),
+    path('page-update/<int:pk>', PageUpdateAPIView.as_view(), name="page_update"),
+    path('page-detail-update/<int:pk>', PageRetrieveUpdateAPIView.as_view(), name="page_retrieve_update"),
+    path('page-retrieve-destroy/<int:pk>', PageRetrieveDestroyAPIView.as_view(), name="page_retrieve_destroy"),
+    path('page-retrieve-update-destroy/<int:pk>', PageRetrieveUpdateDestroyAPIView.as_view(), name="page_retrieve_update_destroy"),
+
 ]

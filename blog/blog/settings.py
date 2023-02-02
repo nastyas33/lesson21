@@ -19,10 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-*^7il0!sxq+$(^^cb!k$u$0yfe_=#j16e1d!%*b%ria91lw&tw'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -39,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news_feed',
     'todo',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
